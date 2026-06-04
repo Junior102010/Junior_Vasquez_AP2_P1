@@ -1,5 +1,6 @@
 package com.edu.ucne.junior_vasquez_ap2_p1.presentation.Navigation
 
+import android.R.attr.navigationIcon
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -10,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Borrame.Edit.BorrameEditScreen
 import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Borrame.List.BorrameListScreen
+import kotlin.random.Random
 
 @Composable
 fun MainNavHost(
@@ -33,7 +35,9 @@ fun MainNavHost(
         }
         composable<Screen.BorrameEdit> {
             BorrameEditScreen(
-                onBack = {navController.navigateUp()}
+                onBack = {navController.navigateUp()},
+                onAdd = {navController.navigateUp()},
+
             )
         }
     }
