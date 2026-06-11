@@ -1,6 +1,5 @@
 package com.edu.ucne.junior_vasquez_ap2_p1.presentation.Navigation
 
-import android.R.attr.navigationIcon
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -9,9 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Borrame.Edit.BorrameEditScreen
-import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Borrame.List.BorrameListScreen
-import kotlin.random.Random
+import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Amonestacion.Edit.AmonestacionEditUiScreen
+import com.edu.ucne.junior_vasquez_ap2_p1.presentation.Amonestacion.List.AmonestacionListScreen
 
 @Composable
 fun MainNavHost(
@@ -20,23 +18,22 @@ fun MainNavHost(
 ){
     NavHost(
         navController = navController,
-        startDestination = Screen.BorrameList,
+        startDestination = Screen.AmonestacionList,
         modifier = Modifier.padding(innerPadding)
     ){
-        composable<Screen.BorrameList> {
-            BorrameListScreen(
-                onAddBorrame = {
-                    navController.navigate(Screen.BorrameEdit())
+        composable<Screen.AmonestacionList> {
+            AmonestacionListScreen(
+                onAddAmonestacion = {
+                    navController.navigate(Screen.AmonestacionEdit(0))
                 },
-                onEditBorrame = { id ->
-                    navController.navigate(Screen.BorrameEdit(id))
+                onEditAmonestacion = { id ->
+                    navController.navigate(Screen.AmonestacionEdit(id))
                 }
             )
         }
-        composable<Screen.BorrameEdit> {
-            BorrameEditScreen(
+        composable<Screen.AmonestacionEdit> {
+            AmonestacionEditUiScreen(
                 onBack = {navController.navigateUp()},
-                onAdd = {navController.navigateUp()},
 
             )
         }
